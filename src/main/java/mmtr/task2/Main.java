@@ -15,7 +15,6 @@ public class Main {
 
         Dictionary dictionary = context.getBean("dictionary", Dictionary.class);
 
-        dictionary.createFiles();
         while (true) {
             BusinessChecks.printMenu();
 

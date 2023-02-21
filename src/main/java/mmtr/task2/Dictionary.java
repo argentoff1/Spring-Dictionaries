@@ -1,13 +1,16 @@
 package mmtr.task2;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 @Component
+@Scope("singleton")
 public class Dictionary {
     private Map<String, String> fromEnglish = new HashMap();
     private Map<String, String> fromDeutsch = new HashMap();
@@ -17,6 +20,7 @@ public class Dictionary {
     private BufferedWriter bufferedWriter;
     private BufferedReader bufferedReader;
 
+    @PostConstruct
     public void createFiles() throws IOException {
         if (!fromEnglishFile.exists())
             fromEnglishFile.createNewFile();
